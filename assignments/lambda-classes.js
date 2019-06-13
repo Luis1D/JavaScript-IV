@@ -28,6 +28,10 @@ class Instructor extends Person {
     grade(student, subject) {
         console.log(`${student.name} receives a perfect score on ${subject}.`);
     }
+    gradeUpdate(student) {
+        student.grade = Math.floor((Math.random() * 100) + 1);
+        console.log(`${this.name} gave ${student.name} a ${student.grade}%`);
+    }
 }
 
 // ********** STUDENT CLASS ********** //
@@ -38,6 +42,7 @@ class Student extends Person {
         this.previousBackground = studentValues.previousBackground;
         this.className = studentValues.className;
         this.favSubjects = studentValues.favSubjects;
+        this.grade = studentValues.grade;
     }
     listsSubjects() {
         console.log(this.favSubjects);
@@ -47,6 +52,13 @@ class Student extends Person {
     }
     sprintChallenge(subject) {
         console.log(`${this.name} has begun sprint challenge on ${subject}`);
+    }
+    graduate() {
+        if(this.grade > 70) {
+            console.log("Congrats! You're graduating!");
+        } else {
+            console.log("Sorry, You're not graduating..");
+        }
     }
 }
 
@@ -99,7 +111,8 @@ const luis = new Student({
     age: 24,
     previousBackground: 'Photographer',
     className: 'WEB-21',
-    favSubjects: ['Web Development', 'Music', 'Photography']
+    favSubjects: ['Web Development', 'Music', 'Photography'],
+    grade: 50
 })
 const john = new Student({
     name: 'John',
@@ -107,7 +120,8 @@ const john = new Student({
     age: 25,
     previousBackground: 'Carwash Attendant',
     className: 'WEB-21',
-    favSubjects: ['Web Development', 'Literature', 'Art']
+    favSubjects: ['Web Development', 'Literature', 'Art'],
+    grade: 20
 })
 const maria = new Student({
     name: 'Maria',
@@ -115,7 +129,8 @@ const maria = new Student({
     age: 21,
     previousBackground: 'Waiter',
     className: 'WEB-21',
-    favSubjects: ['Web Development', 'Science', 'Culinary']
+    favSubjects: ['Web Development', 'Science', 'Culinary'],
+    grade: 80
 })
 
 //PM's
@@ -156,5 +171,6 @@ console.log(christian.speak());
 console.log(luis.sprintChallenge('JavaScript'));
 console.log(dan.grade(maria,'OOP'));
 console.log(darien.debugsCode(john,'CSS'));
-
-
+console.log(maria.listsSubjects());
+console.log(pat.gradeUpdate(luis));
+console.log(luis.graduate());
