@@ -1,3 +1,4 @@
+console.log("********** START OF REFACTOR **********");
 /* 
 
 Prototype Refactor
@@ -170,3 +171,5 @@ class Hero extends Humanoid {
   console.log(swordsman.destroy()); // Sir Mustachio was removed from the game.
   console.log(theVillain.specialPower);
   console.log(theHero.healthBoost());
+
+console.log("********** END OF REFACTOR **********");
